@@ -1,0 +1,60 @@
+﻿@model BookListM.Models.Category
+
+<br />
+<h2 class="text-info">Create Category</h2>
+<br />
+
+<div class="border container" style="padding:30px;">
+    <form method="post">
+
+        @*       <input type="hidden" asp-for="Id" />*@
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-3">
+                <label asp-for="Name"></label>
+            </div>
+            <div class="col-6">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-3">
+                <button type="submit" asp-action="Upsert" class="btn btn-primary form-control">
+                    Create
+                </button>
+            </div>
+            <div class="col-3">
+                <a asp-action="Index" class="btn btn-success form-control">Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<br />
+<div class="container row p-0 m-0">
+    @*<div class="col-6">
+            <h2 class="text-info">Category List</h2>
+        </div>
+        <div class="col-3 offset-3">
+            <a asp-action="Upsert" asp-controller="Demo" class="btn btn-info form-control text-white">
+                Add New Category
+            </a>
+        </div>*@
+    <div class="col-12 border p-3">
+        <table id="DT_load" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/catlist.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}
